@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+body,td,th {
+font-family: Calibri;
+font-size: 16px;
+color:#000000;
+}
+body {
+background-color:#FFFFFF;
+}
+.style1 {
+font-size: 20px;
+font-style: italic;
+font-weight: bold;
+color:#FFFFFF;
+}
+.style2 {
+font-family: Arial, Helvetica, sans-serif;
+color: #000099;
+}
+.style3 {
+font-size: 24px;
+font-weight: bold;
+color:#000066;
+}
+.style5 {
+font-size: 24px;
+font-weight: bold;
+color: #990033;
+}
+.style4 {
+	font-size: 75px;
+	font-weight: bold;
+	color:#FFFFFF;
+}
+-->
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+ <table width="98%" border="0" align="center" cellpadding="5" cellspacing="0">
+ <tr>
+    <td width="128" valign="middle" bgcolor="#000066"><img src="8920e8782358e8296fb5b242a4f9204f.jpg" width="110" height="106" class="style2" /></td>
+    <td height="57" colspan="3" align="center" valign="middle" bgcolor="#000066" class="style4">AROGYA HEALTH CARE</td>
+    </tr>
+ <tr>
+ <td colspan="3" bgcolor="#000066"><span class="style1">EDIT PATIENT DETAILS</span></td>
+ </tr>
+ <tr>
+ <td width="24%">Patient ID</td>
+ <td width="23%"><font color="#FFFF00"><?php echo $myRec['CusID'];?></font></td>
+ <td width="53%">&nbsp;</td>
+ </tr>
+ <tr>
+ <td>Patient Name</td>
+ <td colspan="2"><label>
+ <input name="txtCName" type="text" class="style2" id="txtCName" size="60" maxlength="100" 
+value="<?php echo $myRec['CName'];?>"/>
+ </label></td>
+ </tr>
+ <tr>
+ <td colspan="2">NIC</td>
+ <td>Contact No</td>
+ </tr>
+ <tr>
+ <td colspan="2"><input name="txtNIC" type="text" class="style2" id="txtNIC" size="12" 
+maxlength="12" value="<?php echo $myRec['NIC'];?>"/></td>
+ <td><input name="txtConNo" type="text" class="style2" id="txtConNo" size="12" maxlength="10" 
+value="<?php echo $myRec['ConNo'];?>"/></td>
+ </tr>
+ <tr>
+ <td colspan="2">Email</td>
+ <td>Gender</td>
+ </tr>
+ <tr>
+ <td colspan="2"><input name="txtEmail" type="text" class="style2" id="txtEmail" size="50" 
+maxlength="100" value="<?php echo $myRec['Email'];?>"/></td>
+ <td><label>
+ <input type="radio" name="rbGen" <?php if(isset($myRec['Gender']) && 
+$myRec['Gender']=="Male") echo "checked";?> value="Male" /> Male
+ <input type="radio" name="rbGen" <?php if(isset($myRec['Gender']) && 
+$myRec['Gender']=="Female") echo "checked";?> value="Female" /> Female</label></td>
+ </tr>
+ <tr>
+ <td colspan="2">Civil Status</td>
+ <td>Address</td>
+ </tr>
+ <tr>
+ <td colspan="2"><input type="radio" name="rbCS" <?php if(isset($myRec['CivilStat']) && 
+$myRec['CivilStat']=="Married") echo "checked";?> value="Married" /> Married
+ <input type="radio" name="rbCS" <?php if(isset($myRec['CivilStat']) && 
+$myRec['CivilStat']=="Unmarried") echo "checked";?> value="Unmarried" /> Unmarried</td>
+ <td><textarea name="txaAdd" cols="50" rows="4" class="style2" id="txaAdd"><?php echo 
+$myRec['CAddress'];?></textarea></td>
+ </tr>
+ <tr>
+ <td colspan="2"><label>
+ <div align="center">
+   <input name="btnUpdate" type="submit" class="style3" id="btnUpdate" value="UPDATE" />
+ </div>
+ </label></td>
+ <td>&nbsp;</td>
+ </tr>
+ <tr>
+ <td colspan="3" bgcolor="#000066"><p>&nbsp;</p>
+   <p>&nbsp;</p></td>
+ </tr>
+ </table>
+</form>
+</body>
+</html>

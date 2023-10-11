@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+body,td,th {
+font-family: Calibri;
+font-size: 16px;
+color:#000000;
+}
+body {
+background-color:#FFFFFF;
+}
+.style4 {
+	font-size: 60px;
+	font-weight: bold;
+	color:#FFFFFF;
+}
+-->
+</style>
+</head>
+
+<body>
+<table width="1083" height="172" border="0" cellpadding="0">
+  <tr>
+    <td width="207" valign="middle" bgcolor="#000066"><img src="8920e8782358e8296fb5b242a4f9204f.jpg" width="119" height="115" class="style2" /></td>
+    <td height="117" colspan="4" align="center" valign="middle" bgcolor="#000066" class="style4">AROGYA HEALTH CARE</td>
+    </tr>
+  <tr>
+    <td valign="middle" bgcolor="#000066">&nbsp;</td>
+    <td height="49" colspan="4" align="center" valign="middle" bgcolor="#000066" class="style4">&nbsp;</td>
+  </tr>
+  </table>
+<table border="0" cellspacing="2" cellpadding="5" align="center" 
+width="45%">
+<tr>
+<th bgcolor="#00B9B9">Room Number</th>
+<th bgcolor="#00B9B9">Customer ID</th>
+<th bgcolor="#00B9B9">Customer Name</th>
+<th bgcolor="#00B9B9">Check IN (Date & 
+Time)</th>
+<th bgcolor="#00B9B9">&nbsp</th>
+</tr>';
+while($recs=mysqli_fetch_assoc($Records)){
+$ReservationSerial=$recs['ResSerial'];
+echo '<tr>
+<td align="center">'.$recs['RoomNo'].'</td>
+<td align="center">'.$recs['CusID'].'</td>
+<td align="center">'.$recs['CName'].'</td>
+<td align="center">'.$recs['CheckIn'].'</td>
+<td align="center"><a 
+href="CheckOutProcess.php?ResSe='.$ReservationSerial.'"><img src="Image/Button.png" width="30" 
+height="30"></a></td>
+</tr>
+</body>
+</html>

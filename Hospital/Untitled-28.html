@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<tr>
+<td>
+<table border="0" width="95%" cellspacing="0" cellpadding="8" align="center">
+<tr>
+<th bgcolor="#00B9B9">Patient ID</th>
+<th bgcolor="#00B9B9">Name</th>
+<th bgcolor="#00B9B9">NIC</th>
+<th bgcolor="#00B9B9">Contact No</th>
+<th bgcolor="#00B9B9">Email Address</th>
+<th bgcolor="#00B9B9">Gender</th>
+<th bgcolor="#00B9B9">Civil Status</th>
+<th bgcolor="#00B9B9">Address</th>
+<th bgcolor="#00B9B9">&nbsp</th>
+<th bgcolor="#00B9B9">&nbsp</th>
+</tr>';
+while($Vals=mysqli_fetch_array($resRec)){
+echo '
+<tr>
+<td>'.$Vals['PatID'].'</td>
+<td>'.$Vals['PName'].'</td>
+<td>'.$Vals['NIC'].'</td>
+<td>'.$Vals['ConNo'].'</td>
+<td>'.$Vals['Email'].'</td>
+<td>'.$Vals['Gender'].'</td>
+<td>'.$Vals['CivilStat'].'</td>
+<td>'.$Vals['CAddress'].'</td>
+<td><a href="Edit.php?id='.$cid.'"><img src="Image/pencil.png" width="30" 
+height="30"></a></td>
+<td><a href="Delete.php?id='.$cid.'"><img src="Image/trash.png" width="30" 
+height="30"></a></td>
+</tr>';
+}
+'</table>
+</td>
+</tr>';
+}
+else{
+echo 'Customer ID:'.$cid.' NOT AVAILABLE in the Database!<br> Check 
+the Customer ID & Retry!';
+}
+}
+else{
+echo 'Error while Search for Customer Details!',mysqli_error($conn);
+}
+}
+else{
+$queData="SELECT * FROM customer";
+if(mysqli_query($conn,$queData)){
+$resRec=mysqli_query($conn,$queData);
+if(mysqli_num_rows($resRec)>0){
+echo '<tr>
+<td>
+<table border="0" width="95%" cellspacing="0" cellpadding="8" align="center">
+<tr>
+<th bgcolor="#00B9B9">Customer ID</th>
+<th bgcolor="#00B9B9">Name</th>
+<th bgcolor="#00B9B9">NIC</th>
+<th bgcolor="#00B9B9">Contact No</th>
+<th bgcolor="#00B9B9">Email Address</th>
+<th bgcolor="#00B9B9">Gender</th>
+<th bgcolor="#00B9B9">Civil Status</th>
+<th bgcolor="#00B9B9">Address</th>
+<th bgcolor="#00B9B9">&nbsp</th>
+<th bgcolor="#00B9B9">&nbsp</th>
+</tr>';
+while($Vals=mysqli_fetch_array($resRec)){
+echo '
+<tr>
+<td>'.$Vals['CusID'].'</td>
+<td>'.$Vals['CName'].'</td>
+<td>'.$Vals['NIC'].'</td>
+<td>'.$Vals['ConNo'].'</td>
+<td>'.$Vals['Email'].'</td>
+<td>'.$Vals['Gender'].'</td>
+<td>'.$Vals['CivilStat'].'</td>
+<td>'.$Vals['CAddress'].'</td>
+<td><a href="Edit.php?id='.$Vals['CusID'].'"><img src="Image/pencil.png" width="30" 
+height="30"></a></td>
+<td><a href="Delete.php?id='.$Vals['CusID'].'"><img src="Image/trash.png" width="30" 
+height="30"></a></td>
+</tr>';
+}
+echo '</table>
+</td>
+</tr> ';
+}
+else{
+echo 'Customer ID:'.$cid.' NOT AVAILABLE in the Database!<br> 
+Check the Customer ID & Retry!<br><a href="CusSearch.php"><img src="Image/back.png" width="50" 
+height="50"></a>';
+}
+}
+else{
+echo 'Error while Search for Customer Details!',mysqli_error($conn);
+}
+}
+ }
+else{
+echo 'Database is NOT CONNECTED!',mysqli_error($conn);
+}
+echo '<tr>
+ <th align="center"><a href="CusSearch.php"><img 
+src="Image/back.png" width="50" height="50"></a></td>
+ </tr>
+ <tr>
+ <td align="center"><a href="Main.php"><img 
+src="Image/home.png" width="50" height="50"></a></td>
+ </tr>
+ </table>
+</body>
+</html>
